@@ -29,6 +29,11 @@ print("Scores: \(scores)")
 scores.removeAll()
 print("Remove All Scores: \(scores)")
 
+// Example of how to initialize an array
+var team1: [String] = [String]()
+var team2: [String] = []
+var team3 = [String]()
+
 // MARK: - ===================================================================> Dictionaries
 print("\n=====================================================> Dictionaries \n")
 var employee: [String: Any] = [
@@ -53,10 +58,24 @@ print("Actors: \(actors)")
 actors.remove("Tom Cruise")
 print("Actors after remove \"Tom Cruise\" : \(actors)")
 
+print("\n=====================================================> Set with Array \n")
+var nums: [Int] = [3, 5, 7, 2, 9, 3, 5, 1, 8, 7,]
+var numsSet: Set<Int> = Set(nums)
+
+print("Nums: \(nums)")
+print("Nums Set: \(numsSet)")
+
+print("Nums Count: \(nums.count)")
+print("Nums Set Count: \(numsSet.count)")
+
 // MARK: - ===================================================================> Enums
 print("\n=====================================================> Enums \n")
 enum weekday {
     case monday,tuesday, wednesday,thursday, friday
 }
+enum Direction {case north, south, east, west}
+
 var today = weekday.friday
+var windDirection = Direction.north
 print("Today: \(today)")
+print("Wind Direction: \(windDirection)")
