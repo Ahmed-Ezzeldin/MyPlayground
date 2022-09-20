@@ -124,10 +124,39 @@ let age = 18
 let canVote = age >= 18 ? "Yes" : "No"
 print("can i vote? \(canVote)")
 
-// MARK: - ===================================================================>
+// MARK: - ===================================================================> Loops
+print("\n=====================================================> Loop \n")
+let platforms = ["iOS", "macOS", "tvOS", "watchOS"]
+
+for os in platforms {
+    print("Swift works great on \(os).")
+}
+
+for i in 1...12 {
+    print("5 x \(i) = \(5 * i)")
+}
+
+print("\n=====================================================> while loop \n")
+var countdown = 10
+
+while countdown > 0 {
+    print("\(countdown)")
+    countdown -= 1
+}
+print("Blast off!")
+
+print("\n=====================================================> break and continue \n")
+let filenames = ["me.jpg", "work.txt", "sophie.jpg", "logo.psd"]
+
+for filename in filenames {
+    if filename.hasSuffix(".jpg") == false {
+//        continue
+        break
+    }
+    print("Found picture: \(filename)")
+}
 
 // MARK: - ===================================================================>
-
 // MARK: - ===================================================================>
 
 
