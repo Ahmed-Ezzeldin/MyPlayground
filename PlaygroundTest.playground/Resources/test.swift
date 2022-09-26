@@ -276,6 +276,74 @@ doImportantWork {
     print("This is the third work")
 }
 
+// MARK: - ===================================================================> Structs
+print("\n=====================================================> Create your own structs \n")
+struct Employee {
+    let name: String
+    var vacationRemaining: Int = 14
+    
+    mutating  func takeVacation(days: Int) {
+        if vacationRemaining > days {
+            vacationRemaining -= days
+            print("I'm going on vacation!")
+            print("\(name) Days remaining: \(vacationRemaining)")
+        } else {
+            print("Oops! There aren't enough days remaining.")
+        }
+    }
+}
+
+var kane = Employee(name: "Lana Kane")
+var poovey = Employee(name: "Pam Poovey", vacationRemaining: 35)
+poovey.takeVacation(days: 3)
+
+print("\n=====================================================> Take action when a property changes \n")
+struct Game {
+    var score = 0 {
+        didSet {
+            print("Score is now \(score)")
+        }
+    }
+}
+
+var game = Game()
+game.score += 10
+game.score -= 3
+game.score += 1
+
+
+struct App {
+    var contacts = [String]() {
+        willSet {
+            print("==========================: willSet")
+            print("Current value is: \(contacts)")
+            print("New value will be: \(newValue)")
+        }
+
+        didSet {
+            print("==========================: didSet")
+            print("There are now \(contacts.count) contacts.")
+            print("Old value was \(oldValue)")
+        }
+    }
+}
+
+var app = App()
+app.contacts.append("Adrian")
+app.contacts.append("Allen")
+print("\n=====================================================> Ceate custom initializers \n")
+struct Player {
+    let name: String
+    let number: Int
+
+    init(name: String, number: Int) {
+        self.name = name
+        self.number = number
+    }
+}
+
+let player = Player(name: "Megan R", number: 15)
+
 // MARK: - ===================================================================> Temp
 // MARK: - ===================================================================> Temp
 // MARK: - ===================================================================> Temp
