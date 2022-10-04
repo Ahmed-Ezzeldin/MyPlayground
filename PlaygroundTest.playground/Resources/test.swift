@@ -499,6 +499,73 @@ print("Loop is finished!")
 players.removeAll()
 print("Array is clear!")
 
+// MARK: - ===================================================================> Handle missing data with optionals
+print("\n=====================================================> optionals \n")
+let opposites = [
+    "Mario": "Wario",
+    "Luigi": "Waluigi"
+]
+
+if let marioOpposite = opposites["Mario"] {
+    print("Mario's opposite is \(marioOpposite)")
+}
+
+if let peachOpposite = opposites["Peach"]{
+    print("Peach's opposite is \(peachOpposite)")
+}
+
+
+var username: String? = nil
+
+if let unwrappedName = username {
+    print("We got a user: \(unwrappedName)")
+} else {
+    print("The optional was empty.")
+}
+
+print("\n=====================================================> optionals with guard \n")
+func printSquare(of number: Int?) {
+    guard let number = number else {
+        print("Missing input")
+
+        // 1: We *must* exit the function here
+        return
+    }
+
+    // 2: `number` is still available outside of `guard`
+    print("\(number) x \(number) is \(number * number)")
+}
+printSquare(of: 3)
+printSquare(of: nil)
+printSquare(of: 5)
+
+print("\n=====================================================> optionals with nil coalescing \n")
+
+let captains = [
+    "Enterprise": "Picard",
+    "Voyager": "Janeway",
+    "Defiant": "Sisko"
+]
+
+let new = captains["Serenity"] ?? "Not Found!"
+
+print("\n=====================================================> Optional chaining \n")
+let names = ["Arya", "Bran", "Robb", "Sansa"]
+
+let chosen = names.randomElement()?.uppercased() ?? "No one"
+print("Next in line: \(chosen)")
+
+struct Book {
+    let title: String
+    let author: String?
+}
+
+var book: Book? = nil
+let author = book?.author?.first?.uppercased() ?? "A"
+print(author)
+
+
+
 
 // MARK: - ===================================================================> Temp
 // MARK: - ===================================================================> Temp
